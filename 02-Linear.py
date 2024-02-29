@@ -1,38 +1,19 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[10]:
-
-
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
 from sklearn.metrics import r2_score
 
-
-# In[11]:
-
-
 # Dosya konumuna ulaşıldı
 data=pd.read_excel('/Users/onurkck/Desktop/PythonData/Data/GeneralLearn.xlsx')
 
-
-# In[12]:
-
-
 print(data.head(3))
-
-
-# In[31]:
-
 
 # Label Encoding işlemi
 data['Region'] = data['Region'].map({'İstanbu': 1, 'Female': 0})
-
-
-# In[32]:
-
 
 # X ve y değişkenlerini belirleme
 X = data[['Product_Prise']]
@@ -44,10 +25,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # Lineer regresyon modeli oluşturma ve eğitme
 model = LinearRegression()
 model.fit(X_train, y_train)
-
-
-# In[24]:
-
 
 # Eğitim ve test veri setleri üzerinde tahmin yapma
 y_train_pred = model.predict(X_train)
@@ -65,17 +42,9 @@ print('Test Seti Doğruluk Oranı:', accuracy_test)
 print('Eğitim Seti R² Değeri:', r2_train)
 print('Test Seti R² Değeri:', r2_test)
 
-
-# In[33]:
-
-
 #Neyi tahmin edeceksin
 prediction_april_sales = model.predict([[20]])
 print('Nisan satış miktarı tahmini:', prediction_april_sales)
-
-
-# In[34]:
-
 
 # Görselleştirmeye lojistik regresyon eğrisini ekleyin
 plt.scatter(data['Product_Prise'], data['Sales_Quantity'], label='Gerçek Satış')
@@ -85,94 +54,3 @@ plt.ylabel('Sales_Quantity')
 plt.title('Lineer Regresyon Modeli ile Tahmini Satış')
 plt.legend()
 plt.show()
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
